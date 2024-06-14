@@ -1,0 +1,67 @@
+<%- include("navbar.ejs") %>
+<script src="https://kit.fontawesome.com/a4fada2a0a.js" crossorigin="anonymous"></script>
+<br><br>
+
+<div class="container">
+    <div class="row align-items-center justify-content-center ">
+        <div class="col-md-12">
+            <br>
+        </div>
+        <div class="col-md-5">
+            <img src="/uploads/<%=course_det[0].course_image%>" width="100%" height="300px">
+        </div>
+        <div class="col-md-5">
+            <h3 style="font-weight: bold;"><%=course_det[0]['course_name']%></h3>
+            <br>
+            <h5>In just <%=course_det[0]['course_duration']%></h5>
+            <br>
+            <h2 style="font-weight: bold;">&#8377; <%=course_det[0].course_price%>/-</h2>
+            <br>
+            <h5>By <%=course_det[0]['course_mentor']%></h5>
+            <br>
+            <h5><%=course_det[0].course_platform %></h5>
+            <br>
+            <% if(is_purchase) { %>
+                <button class="btn btn-dark">Allready Purchased</button>
+            <% }
+            else { %>
+                <a href="/confirm_seat/<%=course_det[0].course_id%>">
+                    <button class="btn btn-dark">Confirm Your Seat</button>
+                </a>
+            <% } %>    
+        </div>
+        <div class="col-md-2" style="margin-top: -95px;">
+            <% if(course_det[0].course_sample_video!="") { %>
+                <a  href="" onclick="open_file('/uploads/<%=course_det[0].course_sample_video%>')">
+                    <button class="btn btn-primary" style=" top: 50px;" >
+                        Play demo lecture   
+                    </button>
+                    <button style=" background-color: rgb(43, 153, 231);
+                                    color: white; font-size:30px; width:70px;
+                                    height: 70px;border-radius: 50%; position: absolute; right: 60px;
+                                    top: 50px;" >
+                        <i class="fa fa-play"></i>
+                    </button>
+                </a>
+            <% }%>
+
+        </div>
+        <div class="col-md-12 mt-5">
+            <br>
+            <h2>Details:</h2>
+            <h6><br><%-course_det[0].course_details.replaceAll("\n","<br>") %></h5>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function open_file(path)
+    {
+        window.open(path,"","height='100px', width='500px'")
+    }
+</script>
+
+
+<%- include("footer.ejs") %>

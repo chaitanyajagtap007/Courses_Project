@@ -1,0 +1,121 @@
+<%- include("navbar.ejs") %>
+<style>
+    .formBox {
+                padding: 15px;
+                text-align: center;
+                min-height: 50vh;
+                min-width: 50vw;
+                display: flex;
+                flex-direction: column;
+                background: #f8f8f885;
+                border-radius: 30px;
+                backdrop-filter: blur(10px);
+
+            }
+            p {
+                font-weight: 500;
+                font-size: 1.1em;
+            } 
+
+
+            form>div {
+                padding: 10px;
+                position: relative;
+                font-size: 1.3em;
+            }
+
+            form>div i {
+                position: absolute;
+                top: 22px;
+                margin-left: 10px;
+                opacity: 0.6;
+            }
+
+            form>div input {
+                height: 2em;
+                width: 70vw;
+                padding-left: 40px;
+                font-size: 1em;
+                border-radius: 20px;
+                outline: none;
+                border: 1px solid #b5adad;
+                background-color: #f1f1f1;
+            }
+
+            div>input:focus {
+                border: 1px solid #6f6a6a;
+
+            }
+
+            form>div:hover>i {
+
+                opacity: 1;
+                transition: opacity 1s;
+            }
+
+            textarea {
+                border: 1px solid black ;
+                width: 70vw;
+                border-radius: 20px;
+                padding: 10px;
+                outline: none;
+                font-size: 1em;
+            }
+
+            @media screen and (min-width:900px) {
+                form>div input {
+                    width: 50vw;
+                }
+
+                textarea {
+                    width: 50vw;
+                }
+}
+</style>
+
+
+
+
+
+<div class="formBox">
+    <h2>Contact Us</h2>
+    <p>You will hear from us at the earliest!</p>
+    
+
+
+        <form action="/feedback" method="post">
+            <div class="nameInp">
+                <i class="fa fa-user icon"></i>
+                <input type="text" placeholder="Full Name" name="user_name" >
+
+            </div>
+            <div class="mailInp">
+                <i class="fa fa-envelope"></i>
+                <input type="email" name="user_email"  placeholder="Email">
+            </div>
+            <div class="phoneInp">
+                <i class="fa-solid fa-phone"></i>
+                <input type="number" name="user_mobile"  placeholder="Phone" min="100000" max="9999999999">
+            </div>
+            <div class="queryInp">
+                <textarea name="user_query"  cols="30" rows="5"
+                    placeholder="Any comment or your query"></textarea>
+            </div>
+            <div class="submitBtn">
+                <button  style="width: 50%;
+                height: 5vh;
+                color: #ffffff;
+                background: #00d689;
+                outline: none;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 0.8em;" onclick="notif()">Send Feedback</button>
+            </div>
+        </form>
+        
+
+    <p class="extra">You can also contact us at 782-3887-531</p>
+</div>
+
+<%- include("footer.ejs") %>

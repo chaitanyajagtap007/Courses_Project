@@ -1,0 +1,32 @@
+<%- include("navbar.ejs") %>
+
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center ">
+            <h3>
+               User List
+            </h3>
+        </div>
+        <div class="col-md-12 text-center ">
+            <table class="table table-border">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Purchase Date</th>
+                    <th>Amount</th>
+                </tr>
+                <% for(var i=0;i<courses_list.length;i++) { %>
+                    <tr>
+                        <td><%= courses_list[i].course_name %></td>
+                        <td><%= courses_list[i].purchase_date %></td>
+                        <td>&#8377;<%= courses_list[i].amount %>/-</td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("footer.ejs") %>

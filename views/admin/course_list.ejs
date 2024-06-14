@@ -1,0 +1,55 @@
+<%- include("navbar.ejs") %>
+
+<div class="container-fluid p-5 bg-white">
+    <div class="row">
+        <div class="col-md-12 text-center mb-4">
+            <h3>Course List</h3>
+        </div>
+        
+        <div class="col-md-12 table-responsive">
+            <table class="table table-bordered table-sm">
+                <tr>
+                    <th></th>
+                    <th>SN</th>
+                    <th>Course Name</th>
+                    <th>Category</th>
+                    <th>Duration</th>
+                    <th>Mentor</th>
+                    <th>Platform</th>
+                    <th>Price</th>
+                </tr>
+                <% for( i=0;i<course_list.length;i++) { %>
+                    <tr>
+                        <td width="1%" style="white-space: nowrap;">
+                            <a href="/admin/courses_details/<%=course_list[i].course_id%>">
+                                <button class="btn btn-success btn-sm">
+                                    <i class="fa fa-print"></i> Details
+                                </button>
+                            </a>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                        <td><%= i+1 %></td>
+                        <td><%= course_list[i].courses_name%></td>
+                        <td><%= course_list[i].category_name%></td>
+                        <td><%= course_list[i].course_duration%></td>
+                        <td><%= course_list[i].course_mentor %></td>
+                        <td><%= course_list[i].course_platform %></td>
+                        <td>
+                            
+                            <b>
+                                &#8377;<%= course_list[i].course_price %>/-
+                            </b>
+                            
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include("footer.ejs") %>
